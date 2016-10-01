@@ -1,6 +1,7 @@
 package com.example.zackk.hackumbc;
 
 import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ public class HackathonListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("Button Clicked");
+                System.out.println();
                 Intent i = new Intent(HackathonListActivity.this, Login.class);
                 startActivity(i);
             }
