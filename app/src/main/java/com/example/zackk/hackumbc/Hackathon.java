@@ -1,4 +1,5 @@
 package com.example.zackk.hackumbc;
+import java.util.ArrayList;
 
 
 /**
@@ -7,13 +8,18 @@ package com.example.zackk.hackumbc;
 
 public class Hackathon
 {
+    private int z = 0;
     private double latitude;
     private double longitude;
     private String name;
     private String date;
-   Projects proj = new Projects
-    
-    public Hackathon(double a, double o, String n, String d)
+    private String pn;
+    private String pd;
+    Projects proj = new Projects(pn, pd);
+    ArrayList projectArray = new ArrayList<Projects>();
+
+
+    public Hackathon(double a, double o, String n, String d, Projects p)
     {
         double latitude = a;
         double longitude = o;
@@ -64,20 +70,5 @@ public class Hackathon
     public String getDate()
     {
         return date;
-    }
-
-    /*
-    Shows the attributes of the project in the console. Can be modified and duplicated to show
-    elements separately.
-     */
-
-    public String toString()
-    {
-        for (x = 0, x )
-        return "Project: " +
-    }
-    public int numberOfProjects()
-    {
-        while (proj)
     }
 }
