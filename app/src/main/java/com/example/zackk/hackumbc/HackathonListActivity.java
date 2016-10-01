@@ -9,5 +9,6 @@ public class HackathonListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hackathon_list);
+        System.out.println("lists");
     }
 }
