@@ -46,7 +46,7 @@ public class Login extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAccount(email, password);
+                mAuth.createUserWithEmailAndPassword(email, password);
             }
         });
 
