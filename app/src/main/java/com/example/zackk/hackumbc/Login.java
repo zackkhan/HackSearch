@@ -29,8 +29,8 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "";
-    public String email = "dickinass@gmail.com";
-    public String password = "chickendicks";
+    public String email;
+    public String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
