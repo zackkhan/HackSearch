@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "";
     public String email = "dickinass@gmail.com";
-    public String password = "chicken";
+    public String password = "chickendick";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
