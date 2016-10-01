@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">HackUMBC</string>
     <string name="create_account">Create Account</string>
+    <string name="finish">Finish</string>
 </resources>
