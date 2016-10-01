@@ -19,17 +19,41 @@ import static android.R.attr.password;
 
 public class Login extends AppCompatActivity {
 
-    private Button createAccountButton;
+    private Button signInButton;
+    private Button createAccount;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "";
-    String email = "testName";
-    String password = "testPassword";
+    public String email;
+    public String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Necessary to Connect Code to UI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Connecting the UI to the variables
+        signInButton = (Button) findViewById(R.id.signInButton);
+        createAccount = (Button) findViewById(R.id.createAccountButton);
+
+        // On-Click Listeners
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        createAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go = new Intent(Login.this, CreateAccountActivity.class);
+                startActivity(go);
+            }
+        });
+
+        // Firebase
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -49,15 +73,6 @@ public class Login extends AppCompatActivity {
     }
 
     protected void createLogin() {
-        createAccountButton = (Button) findViewById(R.id.create_account_button);
-        createAccountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createAccount(email, password);
-                //Intent i = new Intent(Login.this, CreateAccountActivity.class);
-                //startActivity(i);
-            }
-        });
 
     }
 
