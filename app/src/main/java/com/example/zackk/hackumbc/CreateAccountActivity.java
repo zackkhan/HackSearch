@@ -14,9 +14,10 @@ public class CreateAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+        createAccountLayout();
     }
 
-    protected void createLogin() {
+    protected void createAccountLayout() {
         finishButton = (Button) findViewById(R.id.finishButton);
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
