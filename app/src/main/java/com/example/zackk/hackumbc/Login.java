@@ -38,6 +38,7 @@ private FirebaseAuth mAuth;
             public void onClick(View v) {
                 System.out.println("Button Clicked");
                 System.out.println("Tamer");
+                System.out.println("Jide");
                 Intent i = new Intent(Login.this, CreateAccountActivity.class);
                 startActivity(i);
             }
