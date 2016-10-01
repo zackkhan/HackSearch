@@ -29,7 +29,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "";
-    public String email = "zack@gmail.com";
+    public String email = "dickinass@gmail.com";
     public String password = "chicken";
 
     @Override
@@ -46,7 +46,12 @@ public class Login extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.createUserWithEmailAndPassword(email, password);
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        signInButton.setText("Tamer");
+                    }
+                });
             }
         });
 
