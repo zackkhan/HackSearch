@@ -23,6 +23,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("Button Clicked");
+                System.out.println();
                 Intent i = new Intent(CreateAccountActivity.this, HackathonListActivity.class);
                 startActivity(i);
             }
