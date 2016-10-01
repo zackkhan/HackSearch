@@ -9,6 +9,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        System.out.println();
+        System.out.println("Hello");
     }
 }
