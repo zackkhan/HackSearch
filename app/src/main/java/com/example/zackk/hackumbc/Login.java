@@ -86,6 +86,7 @@ public class Login extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        signInButton.setText("Tamer");
                         Toast.makeText(Login.this, "Authentication passed.",
                                 Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
