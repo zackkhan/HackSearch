@@ -14,10 +14,10 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        createMenu();
+        createLogin();
     }
 
-    protected void createMenu() {
+    protected void createLogin() {
         createAccountButton = (Button) findViewById(R.id.create_account_button);
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
