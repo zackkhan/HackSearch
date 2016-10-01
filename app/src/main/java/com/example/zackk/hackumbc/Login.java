@@ -23,6 +23,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("Button Clicked");
+                System.out.println("Tamer");
                 Intent i = new Intent(Login.this, CreateAccountActivity.class);
                 startActivity(i);
             }
