@@ -39,6 +39,7 @@ private FirebaseAuth mAuth;
                 System.out.println("Button Clicked");
                 System.out.println("Tamer");
                 System.out.println("Jide");
+                System.out.println("Travis");
                 Intent i = new Intent(Login.this, CreateAccountActivity.class);
                 startActivity(i);
             }
