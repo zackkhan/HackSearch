@@ -112,7 +112,7 @@
                 android:layout_centerVertical="true"
                 android:layout_alignLeft="@+id/emailText"
                 android:layout_alignStart="@+id/emailText"
-                android:id="@+id/passwordText"
+                android:id="@+id/passwordField"
                 android:textColorHint="#c4c0c0"
                 android:hint="Password" />
 
@@ -122,8 +122,8 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:layout_below="@+id/passwordField"
-                android:layout_alignLeft="@+id/passwordText"
-                android:layout_alignStart="@+id/passwordText"
+                android:layout_alignLeft="@+id/passwordField"
+                android:layout_alignStart="@+id/passwordField"
                 android:layout_marginTop="11dp"
                 android:id="@+id/confirmPasswordText"
                 android:hint="Confirm Password"
@@ -155,7 +155,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 app:srcCompat="@drawable/unlocked"
-                android:layout_alignBottom="@+id/passwordText"
+                android:layout_alignBottom="@+id/passwordField"
                 android:layout_alignLeft="@+id/mailIcon"
                 android:layout_alignStart="@+id/mailIcon"
                 android:id="@+id/unlockedIcon" />
@@ -187,7 +187,7 @@
                 android:layout_below="@+id/confirmPasswordField"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="17dp"
-                android:id="@+id/textView3"
+                android:id="@+id/warningText"
                 android:textColor="#c4c0c0" />
         </RelativeLayout>
 
