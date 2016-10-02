@@ -27,7 +27,11 @@
             android:label="@string/title_activity_update_profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NewHack" />
+<<<<<<< HEAD
         <activity android:name=".CreateProject"></activity>
+=======
+        <activity android:name=".CreateProject" />
+>>>>>>> zackkhan/master
         <activity android:name=".JoinProject"></activity>
     </application>
 

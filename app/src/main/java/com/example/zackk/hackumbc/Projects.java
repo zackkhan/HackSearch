@@ -6,6 +6,7 @@ package com.example.zackk.hackumbc;
 
 public class Projects
 {
+    Hackathon h;
     String name = null;
     String description = null;
     public Projects(String n, String d)
