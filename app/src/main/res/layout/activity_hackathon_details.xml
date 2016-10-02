@@ -55,7 +55,7 @@
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:textSize="30sp"
-                    android:id="@+id/textView2"
+                    android:id="@+id/hackName"
                     android:layout_weight="1" />
             </RelativeLayout>
         </LinearLayout>
@@ -82,7 +82,7 @@
                         android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true"
                         android:textSize="20sp"
-                        android:id="@+id/textView3"
+                        android:id="@+id/Date"
                         android:layout_weight="1" />
                 </RelativeLayout>
             </LinearLayout>
@@ -103,7 +103,7 @@
                         android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true"
                         android:textSize="20sp"
-                        android:id="@+id/textView4"
+                        android:id="@+id/city"
                         android:layout_weight="1" />
                 </RelativeLayout>
             </LinearLayout>
@@ -125,7 +125,7 @@
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:textSize="20sp"
-                    android:id="@+id/textView5"
+                    android:id="@+id/site"
                     android:layout_weight="4" />
             </RelativeLayout>
         </LinearLayout>
@@ -149,7 +149,7 @@
                     android:height="80dp"
                     android:textSize="20sp"
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/button3" />
+                    android:id="@+id/haveTeam" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -173,7 +173,7 @@
                     android:height="80dp"
                     android:textSize="20sp"
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/button4" />
+                    android:id="@+id/noTeam" />
             </RelativeLayout>
         </LinearLayout>
 

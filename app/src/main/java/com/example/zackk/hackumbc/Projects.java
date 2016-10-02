@@ -9,6 +9,7 @@ public class Projects
     Hackathon h;
     String name = null;
     String description = null;
+    int currentCount;
     public Projects(String n, String d)
     {
         name = n;

@@ -10,6 +10,7 @@ public class Hackathon {
     String endDate;
     String addressLocality;
     String addressRegion;
+    ArrayList<Projects> projectsList = new ArrayList<Projects>();
 
     public Hackathon(String hackName){
         this.hackName = hackName;
@@ -25,6 +26,11 @@ public class Hackathon {
                 "\naddress locality: " + addressLocality +
                 "\naddress region: " + addressRegion;
     }
+    public void addProject (Projects p)
+    {
+        projectsList.add(p);
+    }
+
 
     public void setWebURL(String webURL){
         this.webURL = webURL;

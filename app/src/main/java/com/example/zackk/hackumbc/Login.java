@@ -44,6 +44,7 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText passw;
     private String x;
+    public static int CurrentHackathon;
 
 
     static ArrayList<Hackathon> hackList = new ArrayList<Hackathon>();
