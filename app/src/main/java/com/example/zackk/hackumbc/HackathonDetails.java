@@ -22,12 +22,13 @@ public Button b;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hackathon_details);
         hackName = (TextView) findViewById(R.id.hackName);
+        haveTeam = (Button) findViewById(R.id.haveTeam);
         hackName.setText(Login.hackList.get(HackathonListActivity.chosenHackathon).hackName.toString());
         Date = (TextView) findViewById(R.id.Date);
         Date.setText(Login.hackList.get(HackathonListActivity.chosenHackathon).startDate.toString());
        city= (TextView) findViewById(R.id.city);
        city.setText(Login.hackList.get(HackathonListActivity.chosenHackathon).addressLocality.toString());
-        site = (TextView) findViewById(R.id.hackName);
+        site = (TextView) findViewById(R.id.site);
         site.setText(Login.hackList.get(HackathonListActivity.chosenHackathon).webURL.toString());
 
         
@@ -48,7 +49,6 @@ public Button b;
                 startActivity(y);
             }
         });
-        haveTeam = (Button) findViewById(R.id.haveTeam);
 
     }
 }

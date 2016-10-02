@@ -112,7 +112,8 @@
                 android:layout_alignStart="@+id/editText4"
                 android:hint="Username"
                 android:textColorHint="#C4C0C0"
-                android:id="@+id/usernameTexts" />
+                android:id="@+id/usernameTexts"
+                android:text="zach@gmail.com" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -126,7 +127,8 @@
                 android:id="@+id/passwordTexts"
                 android:layout_below="@+id/usernameField"
                 android:layout_alignLeft="@+id/editText4"
-                android:layout_alignStart="@+id/editText4" />
+                android:layout_alignStart="@+id/editText4"
+                android:text="chicken" />
 
         </RelativeLayout>
 
