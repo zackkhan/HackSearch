@@ -33,7 +33,7 @@ import static com.example.zackk.hackumbc.R.id.profileIcon;
  */
 
 public class CardHolder extends RecyclerView.Adapter<CardHolder.ViewHolder> {
-    public ArrayList<Hackathon> hackathons = null;
+    public ArrayList<Hackathon> hackathons;
     public Context myContext;
     public CardHolder(Context context, ArrayList<Hackathon> hack) {
         myContext = context;
@@ -59,10 +59,9 @@ public class CardHolder extends RecyclerView.Adapter<CardHolder.ViewHolder> {
                 Context mContext = view.getContext();
                 HackathonListActivity.chosenHackathon = position;
                 Intent go = new Intent(mContext, HackathonDetails.class);
+                mContext.startActivity(go);
             }
         });
-        Picasso.with(myContext).load(hackathons.get(position).imageURL).resize(120, 60).into(holder.logo);
-
 
 
     }
