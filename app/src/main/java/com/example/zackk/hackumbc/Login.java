@@ -43,6 +43,8 @@ public class Login extends AppCompatActivity {
     public String password;
     private EditText username;
     private EditText passw;
+    private String x;
+
 
     ArrayList<Hackathon> hackList;
     String hackHTML;
