@@ -90,6 +90,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent go = new Intent(Login.this, CreateAccountActivity.class);
                 startActivity(go);
+                System.out.println("Login");
             }
         });
 
