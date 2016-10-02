@@ -73,6 +73,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         passwordText.setTypeface(oswald);
         confirmPasswordText.setTypeface(oswald);
         usernameText.setTypeface(oswald);
+        createAccountButton.setTypeface(oswald);
 
         // Setup on Click Listener
         createAccountButton.setOnClickListener(new View.OnClickListener() {
