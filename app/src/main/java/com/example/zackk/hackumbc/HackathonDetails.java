@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lyft.lyftbutton.LyftButton;
 import com.lyft.lyftbutton.RideParams;
@@ -65,8 +66,7 @@ public Button b;
         noTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent x = new Intent(HackathonDetails.this, JoinProject.class);
-                startActivity(x);
+                Toast.makeText(HackathonDetails.this, "This feature is yet to be implemented!", Toast.LENGTH_LONG).show();
             }
         });
         haveTeam.setOnClickListener(new View.OnClickListener() {

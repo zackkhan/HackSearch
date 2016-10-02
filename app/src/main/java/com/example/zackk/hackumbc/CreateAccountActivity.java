@@ -87,8 +87,9 @@ public class CreateAccountActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Toast.makeText(CreateAccountActivity.this, "Logged In Success", Toast.LENGTH_SHORT).show();
                             User newUser = new User (emailText.getText().toString(),usernameText.getText().toString());
-                          Firebase fbchild = fb.child("appUser");
-                            fbchild.setValue(newUser);
+                            FirebaseUser fireuser = FirebaseAuth.getInstance().getCurrentUser();
+                                Firebase fbchild = fb.child("appUser" + fireuser.getUid());
+                                fbchild.setValue(newUser);
                             Intent login = new Intent(CreateAccountActivity.this, Login.class);
                             startActivity(login);
                             if(!task.isSuccessful()) {
