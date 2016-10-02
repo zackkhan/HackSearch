@@ -73,20 +73,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:layout_below="@+id/imageView9"
-                android:layout_alignLeft="@+id/usernameText2"
-                android:layout_alignStart="@+id/usernameText2"
-                android:layout_marginTop="10dp"
-                android:id="@+id/emailText2"
-                android:textColor="#c4c0c0"
-                android:hint="Email Address"
-                android:textColorHint="#c4c0c0" />
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
@@ -97,30 +83,6 @@
                 android:layout_alignParentStart="true" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/loginfields"
-                android:id="@+id/confirmPasswordField2"
-                android:scaleType="fitCenter"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/usernameText2"
-                android:textSize="18sp"
-                android:textColor="#c4c0c0"
-                android:layout_above="@+id/emailField2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="11dp"
-                android:hint="Full Name"
-                android:textColorHint="#c4c0c0" />
-
-            <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignBottom="@+id/emailText2"
@@ -128,6 +90,16 @@
                 android:layout_alignStart="@+id/userIcon2"
                 android:id="@+id/mailIcon2"
                 android:src="@drawable/mail" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/loginfields"
+                android:id="@+id/confirmPasswordField2"
+                android:scaleType="fitCenter"
+                android:layout_below="@+id/unlockedIcon2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -145,12 +117,51 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:srcCompat="@drawable/locked"
-                android:id="@+id/lockedIcon2"
-                android:layout_below="@+id/passworField2"
-                android:layout_alignLeft="@+id/unlockedIcon2"
-                android:layout_alignStart="@+id/unlockedIcon2"
-                android:layout_marginTop="23dp" />
+                android:layout_marginLeft="21dp"
+                android:layout_marginStart="21dp"
+                android:id="@+id/userIcon2"
+                android:src="@drawable/user"
+                android:layout_alignTop="@+id/usernameText2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:id="@+id/emailText2"
+                android:textColor="#c4c0c0"
+                android:hint="Email Address"
+                android:textColorHint="#c4c0c0"
+                android:layout_below="@+id/imageView9"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/usernameText2"
+                android:textSize="18sp"
+                android:textColor="#c4c0c0"
+                android:layout_marginBottom="11dp"
+                android:hint="Full Name"
+                android:textColorHint="#c4c0c0"
+                android:layout_above="@+id/emailField2"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/unlocked"
+                android:id="@+id/unlockedIcon2"
+                android:layout_alignBottom="@+id/passworText2"
+                android:layout_alignLeft="@+id/mailIcon2"
+                android:layout_alignStart="@+id/mailIcon2" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -160,29 +171,19 @@
                 android:id="@+id/confirmPasswordText2"
                 android:hint="Confirm Password"
                 android:textColorHint="#c4c0c0"
-                android:layout_alignTop="@+id/lockedIcon2"
-                android:layout_alignLeft="@+id/passworText2"
-                android:layout_alignStart="@+id/passworText2" />
+                android:layout_alignBottom="@+id/lockedIcon2"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:srcCompat="@drawable/unlocked"
-                android:id="@+id/unlockedIcon2"
-                android:layout_centerVertical="true"
-                android:layout_alignLeft="@+id/mailIcon2"
-                android:layout_alignStart="@+id/mailIcon2" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginStart="21dp"
-                android:id="@+id/userIcon2"
-                android:src="@drawable/user"
-                android:layout_alignTop="@+id/usernameText2"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                app:srcCompat="@drawable/locked"
+                android:id="@+id/lockedIcon2"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/passworField2"
+                android:layout_alignLeft="@+id/unlockedIcon2"
+                android:layout_alignStart="@+id/unlockedIcon2" />
 
         </RelativeLayout>
 
