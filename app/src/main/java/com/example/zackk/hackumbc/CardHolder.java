@@ -22,7 +22,7 @@ import static android.R.id.list;
  */
 
 public class CardHolder extends RecyclerView.Adapter<CardHolder.ViewHolder> {
-    public ArrayList<Hackathon> hackathons;
+    public ArrayList<Hackathon> hackathons = null;
     public Context myContext;
     public CardHolder(Context context, ArrayList<Hackathon> hack) {
         myContext = context;
@@ -45,7 +45,11 @@ public class CardHolder extends RecyclerView.Adapter<CardHolder.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return hackathons.size();
+        if(hackathons == null) {
+            return 0;
+        } else {
+            return hackathons.size();
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {ImageView logo;

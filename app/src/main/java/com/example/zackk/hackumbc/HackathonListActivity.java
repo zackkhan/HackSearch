@@ -25,6 +25,7 @@ public class HackathonListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hackathon_list);
         System.out.println("lists");
         hacks = Login.hackList;
+        hacks.add(new Hackathon("HackUMBC"));
         //createHacksList();
         recyclerView = (RecyclerView)findViewById(R.id.cards);
         logoTag = (TextView) findViewById(R.id.logoTag);
