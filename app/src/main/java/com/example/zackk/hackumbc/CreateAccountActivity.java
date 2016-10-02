@@ -82,7 +82,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                             Intent login = new Intent(CreateAccountActivity.this, Login.class);
                             startActivity(login);
                             if(!task.isSuccessful()) {
-                                Toast.makeText(CreateAccountActivity.this, "Logged In GitFucked", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateAccountActivity.this, "Logged In Failed", Toast.LENGTH_SHORT).show();
 
                             }
                         }
