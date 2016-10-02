@@ -1,5 +1,6 @@
 package com.example.zackk.hackumbc;
 
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+
 import static android.R.attr.password;
 
 public class Login extends AppCompatActivity {
@@ -35,6 +42,11 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText passw;
 
+    ArrayList<Hackathon> hackList;
+    String hackHTML;
+    String hackurl = "https://mlh.io/seasons/s2016/events";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Necessary to Connect Code to UI
@@ -47,13 +59,14 @@ public class Login extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         passw = (EditText) findViewById(R.id.passwordField);
 
-
-
+        hackList = new ArrayList<Hackathon>();
+        final AsyncTask<String, Void, String> execute = new RetrieveFeedTask().execute();
 
         // On-Click Listeners
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                createHackathons(hackHTML);
                 mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -109,6 +122,126 @@ public class Login extends AppCompatActivity {
     }
 
 
+    public void createHackathons(String html) {
+        for (int i = 0; i < html.length() - 16; i++) {
+            String construct = "";
+            if (html.substring(i, i + 16).equals("itemprop=\"name\">")) {
+                i += 16;
+                while (!html.substring(i, i + 1).equals("<")) {
+                    construct += html.substring(i, i + 1);
+                    i++;
+                }
+                hackList.add(new Hackathon(construct));
+            }
+        }
+        fillHackathonFields(hackHTML);
+        for (Hackathon name:hackList){
+            System.out.println(name);
+        }
+
+    }
+
+    public void fillHackathonFields(String html) {
+        int elementIndex = -1;
+        int srcCount = 0;
+        for (int i = 0; i < html.length() - 36; i++) {
+            if (html.substring(i, i + 13).equals("event-wrapper")) {
+                elementIndex++;
+                i += 13;
+            }
+            if (elementIndex > -1) {
+                if (html.substring(i, i + 9).equals("<a href=\"")) {
+                    String construct = "";
+                    i += 9;
+                    while (!html.substring(i, i + 1).equals("\"")) {
+                        construct += html.substring(i, i + 1);
+                        i++;
+                    }
+                    hackList.get(elementIndex).setWebURL(construct);
+                }
+                if (html.substring(i, i + 5).equals("src=\"")) {
+                    srcCount++;
+                    if (srcCount == 2) {
+                        srcCount = 0;
+                        String construct = "";
+                        i += 5;
+                        while (!html.substring(i, i + 1).equals("\"")) {
+                            construct += html.substring(i, i + 1);
+                            i++;
+                        }
+                        hackList.get(elementIndex).setImageURL(construct);
+                    }
+                }
+                if (html.substring(i, i + 36).equals("<meta itemprop=\"startDate\" content=\"")) {
+                    String construct = "";
+                    i += 36;
+                    while (!html.substring(i, i + 1).equals("\"")) {
+                        construct += html.substring(i, i + 1);
+                        i++;
+                    }
+                    hackList.get(elementIndex).setStartDate(construct);
+                }
+                if (html.substring(i, i + 34).equals("<meta itemprop=\"endDate\" content=\"")) {
+                    String construct = "";
+                    i += 34;
+                    while (!html.substring(i, i + 1).equals("\"")) {
+                        construct += html.substring(i, i + 1);
+                        i++;
+                    }
+                    hackList.get(elementIndex).setEndDate(construct);
+                }
+                if (html.substring(i, i + 33).equals("<span itemprop=\"addressLocality\">")) {
+                    String construct = "";
+                    i += 33;
+                    while (!html.substring(i, i + 1).equals("<")) {
+                        construct += html.substring(i, i + 1);
+                        i++;
+                    }
+                    hackList.get(elementIndex).setAddressLocality(construct);
+                }
+                if (html.substring(i, i + 31).equals("<span itemprop=\"addressRegion\">")) {
+                    String construct = "";
+                    i += 31;
+                    while (!html.substring(i, i + 1).equals("<")) {
+                        construct += html.substring(i, i + 1);
+                        i++;
+                    }
+                    hackList.get(elementIndex).setAddressRegion(construct);
+                }
+
+            }
+        }
+    }
+
+
+    private class RetrieveFeedTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            URL url;
+            HttpURLConnection connection; // actual connection to web page
+            BufferedReader BR; // read from web page
+            String line; // An individual line of the web page HTML
+            String result = ""; // A long string containing all the HTML
+            try {
+                url = new URL(hackurl);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+                connection.setRequestMethod("GET");
+                BR = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                while ((line = BR.readLine()) != null) {
+                    result += line;
+                }
+                BR.close();
+            } catch (Exception e) {
+                Log.d("help", "d");
+                e.printStackTrace();
+            }
+            hackHTML = result;
+            return result;
+        }
+    }
+
+
 }
-
-
