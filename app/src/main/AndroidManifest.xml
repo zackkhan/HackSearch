@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".HackathonListActivity"></activity>
+        android:debuggable="true"
     </application>
 
 </manifest>

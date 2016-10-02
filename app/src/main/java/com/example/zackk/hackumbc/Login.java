@@ -42,14 +42,18 @@ public class Login extends AppCompatActivity {
         signInButton = (Button) findViewById(R.id.signInButton);
         createAccount = (Button) findViewById(R.id.createAccountButton);
 
+
         // On-Click Listeners
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        signInButton.setText("Tamer");
+                        signInButton.setText("Zach");
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
             }
@@ -79,30 +83,9 @@ public class Login extends AppCompatActivity {
                 // ...
             }
         };
-        createLogin();
-    }
-
-    protected void createLogin() {
 
     }
 
-    protected void createAccount(String email, String password){
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        signInButton.setText("Tamer");
-                        Toast.makeText(Login.this, "Authentication passed.",
-                                Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
-
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(Login.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
 
     @Override
     public void onStart() {
@@ -118,4 +101,7 @@ public class Login extends AppCompatActivity {
         }
     }
 
+
 }
+
+
