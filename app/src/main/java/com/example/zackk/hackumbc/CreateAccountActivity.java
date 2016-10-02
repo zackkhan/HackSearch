@@ -66,6 +66,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
 
+
         // Setup on Click Listener
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,8 +78,9 @@ public class CreateAccountActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Toast.makeText(CreateAccountActivity.this, "Logged In Success", Toast.LENGTH_SHORT).show();
+                            User newUser = new User (emailText.getText().toString(),usernameText.getText().toString());
                           Firebase fbchild = fb.child("user");
-                            fbchild.setValue(emailText.getText().toString());
+                            fbchild.setValue(newUser);
                             Intent login = new Intent(CreateAccountActivity.this, Login.class);
                             startActivity(login);
                             if(!task.isSuccessful()) {
