@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.lyft.lyftbutton.LyftButton;
+import com.lyft.lyftbutton.RideParams;
+import com.lyft.lyftbutton.RideTypeEnum;
+import com.lyft.networking.ApiConfig;
+
 import static android.R.attr.onClick;
 
 public class HackathonDetails extends AppCompatActivity {
@@ -14,6 +19,9 @@ public class HackathonDetails extends AppCompatActivity {
     public TextView Date;
     public TextView city;
     public TextView site;
+    public static int currHackathon;
+    public static double lat;
+    public static double longi;
 public Button b;
     private Button noTeam;
     private Button haveTeam;
@@ -31,6 +39,25 @@ public Button b;
         site = (TextView) findViewById(R.id.site);
         site.setText(Login.hackList.get(HackathonListActivity.chosenHackathon).webURL.toString());
 
+        currHackathon = HackathonListActivity.chosenHackathon;
+        lyftMeUp();
+
+
+        ApiConfig apiConfig = new ApiConfig.Builder()
+                .setClientId("your_client_id")
+                .setClientToken("your_client_token")
+                .build();
+
+        LyftButton lyftButton = (LyftButton) findViewById(R.id.lyft_button);
+        lyftButton.setApiConfig(apiConfig);
+
+        RideParams.Builder rideParamsBuilder = new RideParams.Builder()
+                .setPickupLocation(39.253772, -76.714279)
+                .setDropoffLocation(lat, longi);
+        rideParamsBuilder.setRideTypeEnum(RideTypeEnum.CLASSIC);
+
+        lyftButton.setRideParams(rideParamsBuilder.build());
+        lyftButton.load();
         
 
 
@@ -51,4 +78,20 @@ public Button b;
         });
 
     }
+
+    public  void lyftMeUp() {
+        if(currHackathon == 0) {
+            lat = 29.720477;
+            longi = -95.396287;
+        } else if (currHackathon == 1) {
+            lat = 28.602380;
+            longi = -81.198880;
+        } else if (currHackathon == 2) {
+            lat = 44.044152;
+            longi = -123.072584;
+        }
+    }
+
+
+
 }

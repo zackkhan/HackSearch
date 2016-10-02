@@ -1,6 +1,7 @@
 package com.example.zackk.hackumbc;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,7 +66,13 @@ public class CreateAccountActivity extends AppCompatActivity {
         createAccountButton = (Button) findViewById(R.id.createAccountButton);
         Firebase.setAndroidContext(this);
         fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
-
+        Typeface merkur = Typeface.createFromAsset(getAssets(), "Merkur.otf");
+        Typeface oswald = Typeface.createFromAsset(getAssets(), "Oswald.ttf");
+        logoName.setTypeface(merkur);
+        emailText.setTypeface(oswald);
+        passwordText.setTypeface(oswald);
+        confirmPasswordText.setTypeface(oswald);
+        usernameText.setTypeface(oswald);
 
         // Setup on Click Listener
         createAccountButton.setOnClickListener(new View.OnClickListener() {
