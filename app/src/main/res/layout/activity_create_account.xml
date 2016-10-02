@@ -27,7 +27,7 @@
                 android:text="HS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/logoName"
+                android:id="@+id/logoName2"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:textSize="70sp"
@@ -58,7 +58,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
-                android:id="@+id/loginField"
+                android:id="@+id/loginField2"
                 android:src="@drawable/loginfields"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -67,18 +67,9 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
-                android:id="@+id/emailField"
+                android:id="@+id/emailField2"
                 android:src="@drawable/loginfields"
                 android:layout_below="@+id/imageView9"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:id="@+id/passwordField"
-                android:src="@drawable/loginfields"
-                android:layout_below="@+id/emailField"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -89,36 +80,20 @@
                 android:text="Email"
                 android:ems="10"
                 android:layout_below="@+id/imageView9"
-                android:layout_alignLeft="@+id/usernameText"
-                android:layout_alignStart="@+id/usernameText"
+                android:layout_alignLeft="@+id/usernameText2"
+                android:layout_alignStart="@+id/usernameText2"
                 android:layout_marginTop="10dp"
-                android:id="@+id/emailText"
+                android:id="@+id/emailText2"
                 android:textColor="#c4c0c0" />
 
-            <EditText
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:ems="10"
-                android:layout_centerVertical="true"
-                android:layout_alignLeft="@+id/emailText"
-                android:layout_alignStart="@+id/emailText"
-                android:id="@+id/passwordField"
-                android:textColorHint="#c4c0c0"
-                android:hint="Password" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:ems="10"
-                android:layout_below="@+id/passwordField"
-                android:layout_alignLeft="@+id/passwordField"
-                android:layout_alignStart="@+id/passwordField"
-                android:layout_marginTop="11dp"
-                android:id="@+id/confirmPasswordText"
-                android:hint="Confirm Password"
-                android:textColorHint="#c4c0c0" />
+                android:layout_height="70dp"
+                android:id="@+id/passworField2"
+                android:src="@drawable/loginfields"
+                android:layout_below="@+id/emailField2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -126,69 +101,88 @@
                 android:inputType="textPersonName"
                 android:text="Username"
                 android:ems="10"
-                android:id="@+id/usernameText"
+                android:id="@+id/usernameText2"
                 android:textSize="18sp"
                 android:textColor="#c4c0c0"
-                android:layout_above="@+id/emailField"
+                android:layout_above="@+id/emailField2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="11dp" />
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_alignBottom="@+id/emailText"
-                android:layout_alignLeft="@+id/userIcon"
-                android:layout_alignStart="@+id/userIcon"
-                android:id="@+id/mailIcon"
+                android:layout_alignBottom="@+id/emailText2"
+                android:layout_alignLeft="@+id/userIcon2"
+                android:layout_alignStart="@+id/userIcon2"
+                android:id="@+id/mailIcon2"
                 android:src="@drawable/mail" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/unlocked"
-                android:layout_alignBottom="@+id/passwordField"
-                android:layout_alignLeft="@+id/mailIcon"
-                android:layout_alignStart="@+id/mailIcon"
-                android:id="@+id/unlockedIcon" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/locked"
-                android:layout_alignBottom="@+id/confirmPasswordText"
-                android:layout_alignLeft="@+id/unlockedIcon"
-                android:layout_alignStart="@+id/unlockedIcon"
-                android:id="@+id/lockedIcon" />
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="21dp"
                 android:layout_marginStart="21dp"
-                android:id="@+id/userIcon"
+                android:id="@+id/userIcon2"
                 android:src="@drawable/user"
-                android:layout_alignTop="@+id/usernameText"
+                android:layout_alignTop="@+id/usernameText2"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <TextView
-                android:text="Passwords Don't Match. Please Try Again!"
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/warningText"
-                android:textColor="#c4c0c0"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="28dp" />
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/passworText2"
+                android:textColorHint="#c4c0c0"
+                android:hint="Password"
+                android:layout_below="@+id/emailField2"
+                android:layout_alignLeft="@+id/emailText2"
+                android:layout_alignStart="@+id/emailText2"
+                android:layout_marginTop="11dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:id="@+id/confirmPasswordField"
-                android:src="@drawable/loginfields"
-                android:layout_below="@+id/passwordField"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/loginfields"
+                android:id="@+id/confirmPasswordField2"
+                android:scaleType="fitCenter"
+                android:layout_below="@+id/passworField2"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/locked"
+                android:id="@+id/lockedIcon2"
+                android:layout_below="@+id/passworField2"
+                android:layout_alignLeft="@+id/unlockedIcon2"
+                android:layout_alignStart="@+id/unlockedIcon2"
+                android:layout_marginTop="23dp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/unlocked"
+                android:id="@+id/unlockedIcon2"
+                android:layout_alignTop="@+id/passworField2"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/mailIcon2"
+                android:layout_alignStart="@+id/mailIcon2" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/confirmPasswordText2"
+                android:hint="Confirm Password"
+                android:textColorHint="#c4c0c0"
+                android:layout_alignTop="@+id/lockedIcon2"
+                android:layout_alignLeft="@+id/passworText2"
+                android:layout_alignStart="@+id/passworText2" />
+
         </RelativeLayout>
 
     </LinearLayout>
@@ -203,12 +197,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <Button
                 android:text="Create Account!"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/createAccountButton"
-                android:textSize="50sp"
+                android:background="#00000000"
+                android:textSize="35sp"
                 android:textColor="#7b94eb"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
