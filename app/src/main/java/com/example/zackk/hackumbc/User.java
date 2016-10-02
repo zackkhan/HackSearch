@@ -12,7 +12,10 @@ public class User {
        email = emaill;
         username = usernamee;
     }
-
+public void joinProject(Projects p)
+{
+    currentProject = p;
+}
     public String getEmail()
     {
         return email;
