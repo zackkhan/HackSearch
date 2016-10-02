@@ -17,6 +17,7 @@ public class HackathonListActivity extends AppCompatActivity {
     public ArrayList<Hackathon> hacks;
     public RecyclerView recyclerView;
     public TextView logoTag;
+    public static int chosenHackathon = -1;
 
 
     @Override
