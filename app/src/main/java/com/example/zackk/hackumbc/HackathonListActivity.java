@@ -10,15 +10,12 @@ public class HackathonListActivity extends AppCompatActivity {
 
     private Button mainButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hackathon_list);
-        System.out.println("lists");
-        createHacksList();
-    }
 
-    protected void createHacksList() {
         mainButton = (Button) findViewById(R.id.main_button);
         mainButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +25,11 @@ public class HackathonListActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        createHacksList();
+    }
+
+    protected void createHacksList() {
 
     }
 }
