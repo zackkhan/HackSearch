@@ -35,10 +35,12 @@ public class CreateAccountActivity extends AppCompatActivity {
     public EditText confirmPasswordText;
     public TextView warningText;
     public Button createAccountButton;
-    private FirebaseAuth mAuth;
+
     private String TAG = "";
-    private FirebaseAuth.AuthStateListener mAuthListener;
+
     private Firebase fb;
+    public FirebaseAuth mAuth;
+    public FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,17 +68,18 @@ public class CreateAccountActivity extends AppCompatActivity {
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // if (!(passwordText.getText().toString().equals(confirmPasswordText.getText().toString()))) {
-               // } else {
+               if (!(passwordText.getText().toString().equals(confirmPasswordText.getText().toString())))
+               {
+               } else {
                     mAuth.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            Toast.makeText(CreateAccountActivity.this, "Logged In Succes", Toast.LENGTH_SHORT).show();
-                          //  fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
-                          //Firebase fbchild = fb.child("user");
-                            //fbchild.setValue(emailText.getText().toString());
-                            //Intent login = new Intent(CreateAccountActivity.this, Login.class);
-                            //startActivity(login);
+                            Toast.makeText(CreateAccountActivity.this, "Logged In Success", Toast.LENGTH_SHORT).show();
+                           fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
+                          Firebase fbchild = fb.child("user");
+                            fbchild.setValue(emailText.getText().toString());
+                            Intent login = new Intent(CreateAccountActivity.this, Login.class);
+                            startActivity(login);
                             if(!task.isSuccessful()) {
                                 Toast.makeText(CreateAccountActivity.this, "Logged In GitFucked", Toast.LENGTH_SHORT).show();
 
@@ -85,7 +88,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     });
                 }
 
-           // }
+            }
         });
 
         // Firebase
