@@ -31,6 +31,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     public EditText confirmPasswordText;
     public Button createAccountButton;
     private FirebaseAuth mAuth;
+    private String TAG = "";
 
 
     @Override
@@ -75,9 +76,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 // ...
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // ...
+        /*// ...
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -93,7 +92,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         };
         // ...
-    }
+    }*/
 
     @Override
     public void onStart() {
