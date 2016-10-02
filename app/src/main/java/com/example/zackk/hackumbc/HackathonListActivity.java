@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,9 @@ public class HackathonListActivity extends AppCompatActivity {
 
     private Button mainButton;
     public ArrayList<Hackathon> hacks;
+    public RecyclerView recyclerView;
+    public TextView logoTag;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +26,9 @@ public class HackathonListActivity extends AppCompatActivity {
         System.out.println("lists");
         hacks = Login.hackList;
         //createHacksList();
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.cards);
+        recyclerView = (RecyclerView)findViewById(R.id.cards);
+        logoTag = (TextView) findViewById(R.id.logoTag);
+
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(layoutManager);
