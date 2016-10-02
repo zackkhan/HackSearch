@@ -1,7 +1,6 @@
 package com.example.zackk.hackumbc;
 
 import android.graphics.Typeface;
-import android.media.Image;
 
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -22,14 +21,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import static android.R.attr.id;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-
-import static android.R.attr.password;
 
 public class Login extends AppCompatActivity {
 
@@ -38,9 +34,10 @@ public class Login extends AppCompatActivity {
     private TextView logoName;
     private ImageView profilePic;
     private ImageView usernameField;
+    private ImageView passwordField;
     private ImageView lockedIcon;
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    public FirebaseAuth mAuth;
+   public FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "";
     public String email;
     public String password;
@@ -66,6 +63,8 @@ public class Login extends AppCompatActivity {
         logoName = (TextView) findViewById(R.id.logoName);
         profilePic = (ImageView) findViewById(R.id.profileIcon);
         lockedIcon = (ImageView) findViewById(R.id.lockedIcon);
+        passwordField = (ImageView) findViewById(R.id.passworField2);
+
 
 
         Typeface merkur = Typeface.createFromAsset(getAssets(), "Merkur.otf");
@@ -101,7 +100,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent go = new Intent(Login.this, CreateAccountActivity.class);
                 startActivity(go);
-                System.out.println("Login");
+               // System.out.println("Login");
             }
         });
 

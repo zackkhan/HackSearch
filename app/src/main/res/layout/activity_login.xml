@@ -83,7 +83,7 @@
 
             <ImageView
                 app:srcCompat="@drawable/loginfields"
-                android:id="@+id/passwordField"
+                android:id="@+id/passworField2"
                 android:layout_width="300dp"
                 android:scaleType="fitCenter"
                 android:layout_height="90dp"

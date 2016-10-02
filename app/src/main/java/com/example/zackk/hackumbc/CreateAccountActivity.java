@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -46,46 +47,45 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
 
         // Setting up the UI and Code Connections
-        logoName = (TextView) findViewById(R.id.logoName);
-        loginField = (ImageView) findViewById(R.id.loginField);
-        emailField = (ImageView) findViewById(R.id.emailField);
-        passwordField = (ImageView) findViewById(R.id.passwordField);
-        confirmPasswordField = (ImageView) findViewById(R.id.confirmPasswordField);
-        userIcon = (ImageView) findViewById(R.id.userIcon);
-        emailIcon = (ImageView) findViewById(R.id.mailIcon);
-        unlockedIcon = (ImageView) findViewById(R.id.unlockedIcon);
-        lockedIcon = (ImageView) findViewById(R.id.lockedIcon);
-        usernameText = (EditText) findViewById(R.id.usernameText);
-        emailText = (EditText) findViewById(R.id.emailText);
-        passwordText = (EditText) findViewById(R.id.passwordField);
-        confirmPasswordText = (EditText) findViewById(R.id.confirmPasswordText);
+        logoName = (TextView) findViewById(R.id.logoName2);
+        loginField = (ImageView) findViewById(R.id.loginField2);
+        emailField = (ImageView) findViewById(R.id.emailField2);
+        passwordField = (ImageView) findViewById(R.id.passworField2);
+        confirmPasswordField = (ImageView) findViewById(R.id.confirmPasswordField2);
+        userIcon = (ImageView) findViewById(R.id.userIcon2);
+        emailIcon = (ImageView) findViewById(R.id.mailIcon2);
+        unlockedIcon = (ImageView) findViewById(R.id.unlockedIcon2);
+        lockedIcon = (ImageView) findViewById(R.id.lockedIcon2);
+        usernameText = (EditText) findViewById(R.id.usernameText2);
+        emailText = (EditText) findViewById(R.id.emailText2);
+        passwordText = (EditText) findViewById(R.id.passworText2);
+        confirmPasswordText = (EditText) findViewById(R.id.confirmPasswordText2);
         createAccountButton = (Button) findViewById(R.id.createAccountButton);
-        warningText = (TextView) findViewById(R.id.warningText);
-        warningText.setText("");
 
         // Setup on Click Listener
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!(passwordText.getText().equals(confirmPasswordText))) {
-                    warningText.setText("Passwords Don't Match. Please Try Again!");
-                } else {
+               // if (!(passwordText.getText().toString().equals(confirmPasswordText.getText().toString()))) {
+               // } else {
                     mAuth.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
-                          Firebase fbchild = fb.child("user");
-                            fbchild.setValue(emailText.getText().toString());
-                            Intent login = new Intent(CreateAccountActivity.this, Login.class);
-                            startActivity(login);
+                            Toast.makeText(CreateAccountActivity.this, "Logged In Succes", Toast.LENGTH_SHORT).show();
+                          //  fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
+                          //Firebase fbchild = fb.child("user");
+                            //fbchild.setValue(emailText.getText().toString());
+                            //Intent login = new Intent(CreateAccountActivity.this, Login.class);
+                            //startActivity(login);
                             if(!task.isSuccessful()) {
-                                warningText.setText("Invalid Input. Please Try Again");
+                                Toast.makeText(CreateAccountActivity.this, "Logged In GitFucked", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     });
                 }
 
-            }
+           // }
         });
 
         // Firebase
