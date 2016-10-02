@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,8 @@ public class Login extends AppCompatActivity {
     private static final String TAG = "";
     public String email;
     public String password;
+    private EditText username;
+    private EditText passw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +44,17 @@ public class Login extends AppCompatActivity {
         // Connecting the UI to the variables
         signInButton = (Button) findViewById(R.id.signInButton);
         createAccount = (Button) findViewById(R.id.createAccountButton);
+        username = (EditText) findViewById(R.id.username);
+        passw = (EditText) findViewById(R.id.passwordField);
+
+
 
 
         // On-Click Listeners
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         signInButton.setText("Zach");
