@@ -90,10 +90,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 createHackathons(hackHTML);
+                search("hack");
+
                 mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
+                        Intent go = new Intent(Login.this, HackathonListActivity.class);
+                        startActivity(go);
                         if (!task.isSuccessful()) {
                             Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
                         }
@@ -241,9 +244,10 @@ public class Login extends AppCompatActivity {
         int len = stringSearch.length();
         for (Hackathon hackathon: hackList){
             String testString = hackathon.toString();
+            System.out.println("found" + testString);
             for(int i = 0;i < testString.length();i++){
-                if(testString.substring(i,i + len).equals(stringSearch)){
-                    System.out.println("found" + hackathon);
+                if(testString.substring(i,i + len).toLowerCase().equals(stringSearch.toLowerCase())){
+
                 }
             }
         }

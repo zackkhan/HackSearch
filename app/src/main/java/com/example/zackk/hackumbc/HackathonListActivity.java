@@ -17,7 +17,6 @@ public class HackathonListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hackathon_list);
         mainButton = (Button) findViewById(R.id.main_button);
-        mainButton = (Button) findViewById(R.id.main_button);
         mainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
