@@ -46,7 +46,7 @@ public class Login extends AppCompatActivity {
     private String x;
 
 
-    static ArrayList<Hackathon> hackList;
+    static ArrayList<Hackathon> hackList = new ArrayList<Hackathon>();
     String hackHTML;
     String hackurl = "https://mlh.io/seasons/s2016/events";
 
@@ -78,6 +78,11 @@ public class Login extends AppCompatActivity {
         passw.setTypeface(oswald);
         signInButton.setTypeface(lang);
 
+        // Execute Hackathon Load
+        final AsyncTask<String, Void, String> execute = new RetrieveFeedTask().execute();
+
+
+
 
 
         // On-Click Listeners
@@ -87,6 +92,7 @@ public class Login extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        createHackathons(hackHTML);
                         Intent go = new Intent(Login.this, HackathonListActivity.class);
                         startActivity(go);
                         Toast.makeText(Login.this, "Login PAssed", Toast.LENGTH_SHORT).show();
