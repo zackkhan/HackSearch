@@ -63,6 +63,8 @@ public class CreateAccountActivity extends AppCompatActivity {
         passwordText = (EditText) findViewById(R.id.passworText2);
         confirmPasswordText = (EditText) findViewById(R.id.confirmPasswordText2);
         createAccountButton = (Button) findViewById(R.id.createAccountButton);
+        Firebase.setAndroidContext(this);
+        fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
 
         // Setup on Click Listener
         createAccountButton.setOnClickListener(new View.OnClickListener() {
@@ -71,19 +73,18 @@ public class CreateAccountActivity extends AppCompatActivity {
                if (!(passwordText.getText().toString().equals(confirmPasswordText.getText().toString())))
                {
                } else {
-                    mAuth.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                   mAuth.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Toast.makeText(CreateAccountActivity.this, "Logged In Success", Toast.LENGTH_SHORT).show();
-                           fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
-                          Firebase fbchild = fb.child("email");
-                            Firebase fbchild2 = fb.child("username");
-                            fbchild2.setValue(usernameText.getText().toString());
+                           //fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
+                           // fb.setAndroidContext(this);
+                          Firebase fbchild = fb.child("user");
                             fbchild.setValue(emailText.getText().toString());
                             Intent login = new Intent(CreateAccountActivity.this, Login.class);
                             startActivity(login);
                             if(!task.isSuccessful()) {
-                                Toast.makeText(CreateAccountActivity.this, "Logged In Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateAccountActivity.this, "Logged In GitFucked", Toast.LENGTH_SHORT).show();
 
                             }
                         }
