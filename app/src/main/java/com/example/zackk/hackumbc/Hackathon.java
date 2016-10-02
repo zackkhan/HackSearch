@@ -1,52 +1,74 @@
 package com.example.zackk.hackumbc;
 import java.util.ArrayList;
 
-public class Hackathon {
 
-    String hackName;
-    String webURL;
-    String imageURL;
-    String startDate;
-    String endDate;
-    String addressLocality;
-    String addressRegion;
+/**
+ * Created by JideA on 10/1/2016.
+ */
 
-    public Hackathon(String hackName){
-        this.hackName = hackName;
+public class Hackathon
+{
+    private int z = 0;
+    private double latitude;
+    private double longitude;
+    private String name;
+    private String date;
+    private String pn;
+    private String pd;
+    Projects proj = new Projects(pn, pd);
+    ArrayList projectArray = new ArrayList<Projects>();
+
+
+    public Hackathon(double a, double o, String n, String d, Projects p)
+    {
+        double latitude = a;
+        double longitude = o;
+        String name = n;
+        String date = d;
     }
 
-    @Override
-    public String toString(){
-        return "Name: " + hackName +
-                "\nURL: " + webURL +
-                "\nimg URL: " + imageURL +
-                "\nstart date: " + startDate +
-                "\nend date: " + endDate +
-                "\naddress locality: " + addressLocality +
-                "\naddress region: " + addressRegion;
+    /*
+    Sets the variable inside this object to latitude, longitude, name, and date.
+    */
+
+    public void setLat(int x)
+    {
+        latitude = x;
     }
 
-    public void setWebURL(String webURL){
-        this.webURL = webURL;
+    public void setLon(int x)
+    {
+        longitude = x;
     }
 
-    public void setImageURL(String imageURL){
-        this.imageURL = imageURL;
+    public void setName(String x)
+    {
+        name = x;
     }
 
-    public void setStartDate(String startDate){
-        this.startDate = startDate;
+    public void setDate(String x)
+    {
+        date = x;
     }
 
-    public void setEndDate(String endDate){
-        this.endDate = endDate;
-    }
+    /*
+     Return statements to return the latitude, longitude, name, and date as well as all the information.
+    */
 
-    public void setAddressLocality(String addressLocality){
-        this.addressLocality = addressLocality;
+    public double getLatitude()
+    {
+        return latitude;
     }
-
-    public void setAddressRegion(String addressRegion){
-        this.addressRegion = addressRegion;
+    public double getLongitude()
+    {
+        return longitude;
+    }
+    public String getName()
+    {
+        return name;
+    }
+    public String getDate()
+    {
+        return date;
     }
 }
