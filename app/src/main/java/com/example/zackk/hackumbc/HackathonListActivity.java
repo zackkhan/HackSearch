@@ -23,9 +23,9 @@ public class HackathonListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hackathon_list);
-        System.out.println("lists");
         hacks = Login.hackList;
-        hacks.add(new Hackathon("HackUMBC"));
+        System.out.println("LIST SIZE ");
+        System.out.println("LIST SIZE " + hacks.size());
         //createHacksList();
         recyclerView = (RecyclerView)findViewById(R.id.cards);
         logoTag = (TextView) findViewById(R.id.logoTag);
@@ -34,6 +34,7 @@ public class HackathonListActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(layoutManager);
         CardHolder adapter = new CardHolder(getApplicationContext(),hacks);
+        System.out.println("HELLO" + hacks.get(0).hackName);
         recyclerView.setAdapter(adapter);
     }
 
