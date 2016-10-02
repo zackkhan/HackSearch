@@ -28,6 +28,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NewHack" />
         <activity android:name=".HackathonDetails"></activity>
+        <activity android:name=".CreateProject"></activity>
     </application>
 
 </manifest>

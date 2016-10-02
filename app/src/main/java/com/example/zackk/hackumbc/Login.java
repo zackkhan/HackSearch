@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
         createAccount.setTypeface(oswald);
         username.setTypeface(oswald);
         passw.setTypeface(oswald);
-        signInButton.setTypeface(lang);
+        signInButton.setTypeface(oswald);
 
         // Execute Hackathon Load
         final AsyncTask<String, Void, String> execute = new RetrieveFeedTask().execute();
