@@ -74,7 +74,8 @@ public class CreateAccountActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
-                          
+                          Firebase fbchild = fb.child("user");
+                            fbchild.setValue(emailText.getText().toString());
                             Intent login = new Intent(CreateAccountActivity.this, Login.class);
                             startActivity(login);
                             if(!task.isSuccessful()) {

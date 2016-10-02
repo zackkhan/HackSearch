@@ -53,7 +53,6 @@ public class Login extends AppCompatActivity {
     String hackHTML;
     String hackurl = "https://mlh.io/seasons/s2016/events";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Necessary to Connect Code to UI
@@ -82,13 +81,11 @@ public class Login extends AppCompatActivity {
 
 
 
-        hackList = new ArrayList<Hackathon>();
-        final AsyncTask<String, Void, String> execute = new RetrieveFeedTask().execute();
-
         // On-Click Listeners
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
                 createHackathons(hackHTML);
                 search("hack");
 
@@ -97,6 +94,13 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Intent go = new Intent(Login.this, HackathonListActivity.class);
                         startActivity(go);
+=======
+                mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                       // Intent go = new Intent(Login.this, LoadingScreen.class);
+                        //startActivity(go);
+>>>>>>> zackkhan/master
                         if (!task.isSuccessful()) {
                             Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
                         }
@@ -148,13 +152,12 @@ public class Login extends AppCompatActivity {
         }
     }
 
-
-    public void createHackathons(String html) {
-        for (int i = 0; i < html.length() - 16; i++) {
+    public void createHackathons(String html){
+        for (int i = 0;i < html.length() - 16;i++){
             String construct = "";
-            if (html.substring(i, i + 16).equals("itemprop=\"name\">")) {
+            if (html.substring(i, i + 16).equals("itemprop=\"name\">")){
                 i += 16;
-                while (!html.substring(i, i + 1).equals("<")) {
+                while(!html.substring(i, i + 1).equals("<")){
                     construct += html.substring(i, i + 1);
                     i++;
                 }
@@ -165,71 +168,69 @@ public class Login extends AppCompatActivity {
         for (Hackathon name:hackList){
             System.out.println(name);
         }
-
     }
-
-    public void fillHackathonFields(String html) {
+    public void fillHackathonFields(String html){
         int elementIndex = -1;
         int srcCount = 0;
-        for (int i = 0; i < html.length() - 36; i++) {
-            if (html.substring(i, i + 13).equals("event-wrapper")) {
+        for (int i = 0;i < html.length() - 36;i++){
+            if (html.substring(i, i + 13).equals("event-wrapper")){
                 elementIndex++;
                 i += 13;
             }
-            if (elementIndex > -1) {
-                if (html.substring(i, i + 9).equals("<a href=\"")) {
+            if (elementIndex > -1){
+                if (html.substring(i, i + 9).equals("<a href=\"")){
                     String construct = "";
                     i += 9;
-                    while (!html.substring(i, i + 1).equals("\"")) {
+                    while(!html.substring(i, i + 1).equals("\"")){
                         construct += html.substring(i, i + 1);
                         i++;
                     }
                     hackList.get(elementIndex).setWebURL(construct);
                 }
-                if (html.substring(i, i + 5).equals("src=\"")) {
+                if (html.substring(i, i + 5).equals("src=\"")){
                     srcCount++;
-                    if (srcCount == 2) {
+                    if (srcCount == 2){
                         srcCount = 0;
                         String construct = "";
                         i += 5;
-                        while (!html.substring(i, i + 1).equals("\"")) {
+                        while(!html.substring(i, i + 1).equals("\"")){
                             construct += html.substring(i, i + 1);
                             i++;
                         }
                         hackList.get(elementIndex).setImageURL(construct);
                     }
                 }
-                if (html.substring(i, i + 36).equals("<meta itemprop=\"startDate\" content=\"")) {
+                if (html.substring(i, i + 36).equals("<meta itemprop=\"startDate\" content=\"")){
                     String construct = "";
                     i += 36;
-                    while (!html.substring(i, i + 1).equals("\"")) {
+                    while(!html.substring(i, i + 1).equals("\"")){
                         construct += html.substring(i, i + 1);
                         i++;
                     }
                     hackList.get(elementIndex).setStartDate(construct);
                 }
-                if (html.substring(i, i + 34).equals("<meta itemprop=\"endDate\" content=\"")) {
+                if (html.substring(i, i + 34).equals("<meta itemprop=\"endDate\" content=\"")){
                     String construct = "";
                     i += 34;
-                    while (!html.substring(i, i + 1).equals("\"")) {
+                    while(!html.substring(i, i + 1).equals("\"")){
                         construct += html.substring(i, i + 1);
                         i++;
                     }
                     hackList.get(elementIndex).setEndDate(construct);
                 }
-                if (html.substring(i, i + 33).equals("<span itemprop=\"addressLocality\">")) {
+                if (html.substring(i, i + 33).equals("<span itemprop=\"addressLocality\">")){
                     String construct = "";
                     i += 33;
-                    while (!html.substring(i, i + 1).equals("<")) {
+                    while(!html.substring(i, i + 1).equals("<")){
                         construct += html.substring(i, i + 1);
                         i++;
                     }
                     hackList.get(elementIndex).setAddressLocality(construct);
                 }
-                if (html.substring(i, i + 31).equals("<span itemprop=\"addressRegion\">")) {
+                if (html.substring(i, i + 31).equals("<span itemprop=\"addressRegion\">")){
                     String construct = "";
                     i += 31;
-                    while (!html.substring(i, i + 1).equals("<")) {
+                    while(!html.substring(i, i + 1).equals("<")){
                         construct += html.substring(i, i + 1);
                         i++;
                     }
@@ -281,6 +282,5 @@ public class Login extends AppCompatActivity {
             return result;
         }
     }
-
 
 }
