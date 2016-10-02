@@ -2,9 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zackk.hackumbc">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+>>>>>>> refs/remotes/zackkhan/master
 
     <application
         android:allowBackup="true"
@@ -20,7 +24,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".HackathonListActivity"></activity>
+        <activity android:name=".HackathonListActivity" />
+        android:debuggable="true"
+        <activity
+            android:name=".UpdateProfile"
+            android:label="@string/title_activity_update_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".NewHack"></activity>
     </application>
 
 </manifest>
