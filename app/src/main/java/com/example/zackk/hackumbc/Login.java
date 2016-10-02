@@ -1,5 +1,8 @@
 package com.example.zackk.hackumbc;
 
+import android.graphics.Typeface;
+import android.media.Image;
+
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +22,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import static android.R.attr.id;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -34,6 +38,7 @@ public class Login extends AppCompatActivity {
     private TextView logoName;
     private ImageView profilePic;
     private ImageView usernameField;
+    private ImageView lockedIcon;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "";
@@ -56,8 +61,24 @@ public class Login extends AppCompatActivity {
         // Connecting the UI to the variables
         signInButton = (Button) findViewById(R.id.signInButton);
         createAccount = (Button) findViewById(R.id.createAccountButton);
-        username = (EditText) findViewById(R.id.username);
-        passw = (EditText) findViewById(R.id.passwordField);
+        username = (EditText) findViewById(R.id.usernameTexts);
+        usernameField =(ImageView) findViewById(R.id.usernameField);
+        passw = (EditText) findViewById(R.id.passwordTexts);
+        logoName = (TextView) findViewById(R.id.logoName);
+        profilePic = (ImageView) findViewById(R.id.profileIcon);
+        lockedIcon = (ImageView) findViewById(R.id.lockedIcon);
+
+
+        Typeface merkur = Typeface.createFromAsset(getAssets(), "Merkur.otf");
+        Typeface oswald = Typeface.createFromAsset(getAssets(), "Oswald.ttf");
+        Typeface lang = Typeface.createFromAsset(getAssets(), "Lantinghei.ttc");
+        logoName.setTypeface(merkur);
+        createAccount.setTypeface(oswald);
+        username.setTypeface(oswald);
+        passw.setTypeface(oswald);
+        signInButton.setTypeface(lang);
+
+
 
         hackList = new ArrayList<Hackathon>();
         final AsyncTask<String, Void, String> execute = new RetrieveFeedTask().execute();
@@ -84,6 +105,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent go = new Intent(Login.this, CreateAccountActivity.class);
                 startActivity(go);
+                System.out.println("Login");
             }
         });
 

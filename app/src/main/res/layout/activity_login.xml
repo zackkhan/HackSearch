@@ -29,8 +29,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/logoName"
-                android:textColor="#ffffff"
-                android:textSize="70sp"
+                android:textColor="#d61111"
+                android:textSize="120sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
         </RelativeLayout>
@@ -59,10 +59,10 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/profileImg"
+                android:id="@+id/profileIcon"
                 android:layout_alignParentTop="true"
-                android:layout_alignLeft="@+id/imageView3"
-                android:layout_alignStart="@+id/imageView3"
+                android:layout_alignLeft="@+id/usernameField"
+                android:layout_alignStart="@+id/usernameField"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="90dp"
@@ -72,7 +72,6 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:inputType="textPersonName"
-                android:text="Username"
                 android:ems="10"
                 android:id="@+id/editText4"
                 android:layout_marginRight="32dp"
@@ -84,7 +83,7 @@
 
             <ImageView
                 app:srcCompat="@drawable/loginfields"
-                android:id="@+id/imageView3"
+                android:id="@+id/passwordField"
                 android:layout_width="300dp"
                 android:scaleType="fitCenter"
                 android:layout_height="90dp"
@@ -95,35 +94,37 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/imageView12"
+                android:id="@+id/lockedIcon"
                 android:src="@drawable/locked"
                 android:layout_below="@+id/usernameField"
-                android:layout_alignLeft="@+id/profileImg"
-                android:layout_alignStart="@+id/profileImg"
+                android:layout_alignLeft="@+id/profileIcon"
+                android:layout_alignStart="@+id/profileIcon"
                 android:layout_marginTop="10dp" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:textColor="#c4c0c0"
+                android:layout_alignTop="@+id/editText4"
+                android:layout_alignLeft="@+id/editText4"
+                android:layout_alignStart="@+id/editText4"
+                android:hint="Username"
+                android:textColorHint="#C4C0C0"
+                android:id="@+id/usernameTexts" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/passwordField"
                 style="@android:style/Widget.DeviceDefault.EditText"
                 android:hint="Password"
                 android:textColor="#c4c0c0"
+                android:textColorHint="#C4C0C0"
+                android:id="@+id/passwordTexts"
                 android:layout_below="@+id/usernameField"
-                android:layout_alignLeft="@+id/username"
-                android:layout_alignStart="@+id/username" />
-
-            <EditText
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:inputType="textPersonName"
-                android:text="Username"
-                android:ems="10"
-                android:id="@+id/username"
-                android:textColor="#c4c0c0"
-                android:layout_alignTop="@+id/editText4"
                 android:layout_alignLeft="@+id/editText4"
                 android:layout_alignStart="@+id/editText4" />
 
