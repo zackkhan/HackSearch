@@ -1,7 +1,6 @@
 package com.example.zackk.hackumbc;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -29,9 +31,11 @@ public class CreateAccountActivity extends AppCompatActivity {
     public EditText emailText;
     public EditText passwordText;
     public EditText confirmPasswordText;
+    public TextView warningText;
     public Button createAccountButton;
     private FirebaseAuth mAuth;
     private String TAG = "";
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
 
     @Override
@@ -52,31 +56,36 @@ public class CreateAccountActivity extends AppCompatActivity {
         lockedIcon = (ImageView) findViewById(R.id.lockedIcon);
         usernameText = (EditText) findViewById(R.id.usernameText);
         emailText = (EditText) findViewById(R.id.emailText);
-        passwordText = (EditText) findViewById(R.id.passwordText);
+        passwordText = (EditText) findViewById(R.id.passwordField);
         confirmPasswordText = (EditText) findViewById(R.id.confirmPasswordText);
         createAccountButton = (Button) findViewById(R.id.createAccountButton);
+        warningText = (TextView) findViewById(R.id.warningText);
+        warningText.setText("");
 
         // Setup on Click Listener
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!(passwordText.getText().equals(confirmPasswordText))) {
-                    createAccountButton.setText("Passwords Don't Match");
+                    warningText.setText("Passwords Don't Match. Please Try Again!");
+                } else {
+                    mAuth.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            Intent login = new Intent(CreateAccountActivity.this, Login.class);
+                            startActivity(login);
+                            if(!task.isSuccessful()) {
+                                warningText.setText("Invalid Input. Please Try Again");
+                            }
+                        }
+                    });
                 }
 
             }
         });
 
-        // Firebase Setup
+        // Firebase
         mAuth = FirebaseAuth.getInstance();
-
-
-    }
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
-// ...
-
-        /*// ...
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -91,8 +100,10 @@ public class CreateAccountActivity extends AppCompatActivity {
                 // ...
             }
         };
-        // ...
-    }*/
+
+
+    }
+
 
     @Override
     public void onStart() {
