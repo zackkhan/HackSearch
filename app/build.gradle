@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+    packagingOptions{
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+    }
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {

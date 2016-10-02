@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
     private String x;
 
 
-    ArrayList<Hackathon> hackList;
+    public static ArrayList<Hackathon> hackList;
     String hackHTML;
     String hackurl = "https://mlh.io/seasons/s2016/events";
 
@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        signInButton.setText("Zach");
+
                         if (!task.isSuccessful()) {
                             Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
                         }
@@ -237,6 +237,17 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    protected static void search(String stringSearch){
+        int len = stringSearch.length();
+        for (Hackathon hackathon: hackList){
+            String testString = hackathon.toString();
+            for(int i = 0;i < testString.length();i++){
+                if(testString.substring(i,i + len).equals(stringSearch)){
+                    System.out.println("found" + hackathon);
+                }
+            }
+        }
+    }
 
     private class RetrieveFeedTask extends AsyncTask<String, Void, String> {
 
