@@ -14,7 +14,7 @@ public class HackathonDetails extends AppCompatActivity {
     public TextView Date;
     public TextView city;
     public TextView site;
-
+public Button b;
     private Button noTeam;
     private Button haveTeam;
     @Override
