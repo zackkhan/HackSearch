@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
     private ImageView passwordField;
     private ImageView lockedIcon;
     public FirebaseAuth mAuth;
-   public FirebaseAuth.AuthStateListener mAuthListener;
+    public FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "";
     public String email;
     public String password;
