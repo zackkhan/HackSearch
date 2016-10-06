@@ -85,11 +85,17 @@ public class CreateAccountActivity extends AppCompatActivity {
                    mAuth.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+<<<<<<< HEAD
                             Toast.makeText(CreateAccountActivity.this, "Logged In Success", Toast.LENGTH_SHORT).show();
                             User newUser = new User (emailText.getText().toString(),usernameText.getText().toString());
                             FirebaseUser fireuser = FirebaseAuth.getInstance().getCurrentUser();
                                 Firebase fbchild = fb.child("appUser" + fireuser.getUid());
                                 fbchild.setValue(newUser);
+=======
+                            fb = new Firebase("https://hackersearch-5723c.firebaseio.com/");
+                          Firebase fbchild = fb.child("user");
+                            fbchild.setValue(emailText.getText().toString());
+>>>>>>> master
                             Intent login = new Intent(CreateAccountActivity.this, Login.class);
                             startActivity(login);
                             if(!task.isSuccessful()) {
