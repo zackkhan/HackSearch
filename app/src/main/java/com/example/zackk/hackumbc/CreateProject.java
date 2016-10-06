@@ -17,7 +17,7 @@ public class CreateProject extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_project);
-        newHackName = (EditText) findViewById(R.id.newHackName);
+        newHackName = (EditText) findViewById(R.id.newProjectDescription);
         newHackDescription = (EditText) findViewById(R.id.newProjectDescription);
         newProjectButton = (Button) findViewById(R.id.newProjectButton);
         newProjectButton.setOnClickListener(new View.OnClickListener() {
