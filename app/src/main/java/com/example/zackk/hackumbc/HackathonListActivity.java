@@ -7,23 +7,32 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
 import android.widget.TextView;
 
 import java.util.ArrayList;
+=======
+import android.widget.ImageView;
+>>>>>>> master
 
 public class HackathonListActivity extends AppCompatActivity {
 
     private Button mainButton;
+<<<<<<< HEAD
     public ArrayList<Hackathon> hacks;
     public RecyclerView recyclerView;
     public TextView logoTag;
     public static int chosenHackathon = -1;
 
+=======
+    private ImageView test;
+>>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hackathon_list);
+<<<<<<< HEAD
         hacks = Login.hackList;
         System.out.println("LIST SIZE ");
         System.out.println("LIST SIZE " + hacks.size());
@@ -40,6 +49,8 @@ public class HackathonListActivity extends AppCompatActivity {
     }
 
     /*protected void createHacksList() {
+=======
+>>>>>>> master
         mainButton = (Button) findViewById(R.id.main_button);
         mainButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +60,15 @@ public class HackathonListActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        createHacksList();
+    }
 
+    protected void createHacksList() {
+
+<<<<<<< HEAD
     }*/
+=======
+    }
+
+>>>>>>> master
 }

@@ -47,7 +47,11 @@ public class Login extends AppCompatActivity {
     public static int CurrentHackathon;
 
 
+<<<<<<< HEAD
     static ArrayList<Hackathon> hackList = new ArrayList<Hackathon>();
+=======
+    public static ArrayList<Hackathon> hackList;
+>>>>>>> master
     String hackHTML;
     String hackurl = "https://mlh.io/seasons/s2016/events";
 
@@ -85,11 +89,15 @@ public class Login extends AppCompatActivity {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         // On-Click Listeners
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
                 mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -97,6 +105,24 @@ public class Login extends AppCompatActivity {
                         Intent go = new Intent(Login.this, HackathonListActivity.class);
                         startActivity(go);
                         Toast.makeText(Login.this, "Login PAssed", Toast.LENGTH_SHORT).show();
+=======
+<<<<<<< HEAD
+                createHackathons(hackHTML);
+                search("hack");
+
+                mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Intent go = new Intent(Login.this, HackathonListActivity.class);
+                        startActivity(go);
+=======
+                mAuth.signInWithEmailAndPassword(username.getText().toString(), passw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                       // Intent go = new Intent(Login.this, LoadingScreen.class);
+                        //startActivity(go);
+>>>>>>> zackkhan/master
+>>>>>>> master
                         if (!task.isSuccessful()) {
                             Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
                         }
@@ -237,6 +263,18 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    protected static void search(String stringSearch){
+        int len = stringSearch.length();
+        for (Hackathon hackathon: hackList){
+            String testString = hackathon.toString();
+            System.out.println("found" + testString);
+            for(int i = 0;i < testString.length();i++){
+                if(testString.substring(i,i + len).toLowerCase().equals(stringSearch.toLowerCase())){
+
+                }
+            }
+        }
+    }
 
     private class RetrieveFeedTask extends AsyncTask<String, Void, String> {
 
