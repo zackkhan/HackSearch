@@ -39,7 +39,8 @@
                 android:textColor="@color/colorPrimary"
                 android:id="@+id/newProjectButton"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="#00000000" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -61,37 +62,26 @@
                     android:id="@+id/newProjectName"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:textColor="?attr/colorBackgroundFloating"
+                    android:textColor="#c4c0c0"
                     android:textSize="25sp"
                     android:hint="New Hack Name"
-                    style="@android:style/TextAppearance.DeviceDefault.Inverse" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/newHackName"
-                    android:textColor="?attr/colorBackgroundFloating"
-                    android:textSize="25sp"
-                    android:hint="New Hack Name"
-                    style="@android:style/TextAppearance.DeviceDefault.Inverse"
-                    android:layout_alignBaseline="@+id/newProjectName"
-                    android:layout_alignBottom="@+id/newProjectName"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:textColorHint="#c4c0c0" />
 
                 <EditText
                     android:layout_width="300dp"
-                    android:layout_height="200dp"
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/newProjectDescription"
                     android:layout_marginTop="26dp"
-                    android:layout_below="@+id/newProjectName"
-                    android:layout_centerHorizontal="true"
                     android:textColor="#ffffff"
-                    android:text="New Project Description" />
+                    android:hint="New Project Description"
+                    android:textColorHint="#c4c0c0"
+                    android:layout_below="@+id/newProjectName"
+                    android:layout_alignLeft="@+id/newProjectName"
+                    android:layout_alignStart="@+id/newProjectName"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_height="100dp" />
 
             </RelativeLayout>
         </RelativeLayout>
