@@ -25,7 +25,8 @@ public class CreateProject extends AppCompatActivity {
             public void onClick(View v) {
                 newProject = new Projects (newHackName.getText().toString(), newHackDescription.getText().toString());
                 Login.hackList.get(HackathonListActivity.chosenHackathon).addProject(newProject);
-               // Intent p = new Intent(CreateProject.this, )
+               Intent p = new Intent(CreateProject.this, ProjectListActivity.class );
+                startActivity(p);
             }
 
         });
